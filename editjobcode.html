@@ -1,0 +1,69 @@
+<h4>Edit Job Code</h4>
+
+<div class="edit-job-code-form">
+<div class="row">
+  <div class="col">
+    <label for="job-code" class="form-label">Job Code</label>
+    <input type="text" class="form-control" id="job-code" readonly >
+  </div>
+  <div class="col">
+    <label for="client" class="form-label">Client</label>
+    <input type="text" class="form-control" id="client"readonly>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col">
+    <label for="skillType" class="form-label">Skill Type</label>
+    <input type="text" class="form-control" id="skillType"readonly>
+  </div>
+    <div class="row">
+    <div class="col">
+    <label for="budget" class="form-label">Budget</label>
+    <input type="text" class="form-control" id="budget"readonly>
+  </div>
+  <div class="col">
+    <label for="skill" class="form-label">Skill</label>
+    <input type="text" class="form-control" id="skill"readonly>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-md-6">
+    <label for="client-spoc" class="form-label">Client SPOC</label>
+    <input type="text" class="form-control" id="client-spoc" readonly>
+  </div>
+   <div class="col-md-6">
+    <label for="client-Manager" class="form-label">Client Manager</label>
+    <input type="text" class="form-control" id="clientManager" >
+  </div>
+  <div class="col-md-4">
+    <label for="culminant-spoc" class="form-label">Culminant SPOC</label>
+    <input type="text" class="form-control" id="culminant-spoc" readonly>
+  </div>
+    <div class="col-md-4">
+    <label for="culminant-spoc" class="form-label">Team Lead</label>
+    <input type="text" class="form-control" id="teamLead" readonly>
+  </div>
+    <div class="col-md-2">
+    <label for="status" class="form-label">Status</label>
+    <select class="form-select" id = "status" aria-label="Default select example">
+    <option  selected></option>
+    <option  value="Active">Active</option>
+    <option  value="Closed">Closed</option>
+    <option  value="Hold">Hold</option>
+    </select>
+  </div>
+  <div class="row">
+  <div class="col-auto">
+  <label for="status" class="form-label"> </label>
+  <button class="btn btn-primary  mt-3" id="save-changes">Save Changes</button>
+  </div>
+  <div class="col-auto">
+  <label for="status" class="form-label"> </label>
+  <button class="btn btn-primary  mt-3"  id="cancel-changes">Cancel Changes</button>
+</div>
+</div>
+
+<div class="alert alert-success invisible mt-3" id="save-success-message" role="alert">
+  Changes Saved!!
+</div>
+
