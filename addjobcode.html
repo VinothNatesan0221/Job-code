@@ -1,0 +1,283 @@
+<h4>Add a Job Code</h4>
+<div id="userform">
+<div class="add-job-code-form">
+ <div class="row">
+  <div class="col">
+    <label for="shared-date" class="form-label" >Requirement Shared Date</label>
+    <input type="date" class="form-control" dateformat="dd-MMM-yyyy" id="shared-date">
+  </div>
+  <div class="col">
+    <label for="job-code" class="form-label">Job Code</label>
+    <input type="text" class="form-control" id="job-code" readonly>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col">
+  <label for="client" class="form-label">Client</label>
+    <select class="form-select" id = "client" aria-label="Default select example" onChange="changecli(this.value);" required>
+    <option selected></option>
+<option value="3i-InfoTech" >3i-InfoTech</option>
+<option value="Adithya Birla Capital" >Adithya Birla Capital</option>
+<option value="Argo Hytos" >Argo Hytos</option>
+<option value="ACL" >ACL</option>
+<option value="Allsec Technologies" >Allsec Technologies</option>
+<option value="Alpha Ori" >Alpha Ori</option>
+<option value="Altimetrik" >Altimetrik</option>
+<option value="Appviewx" >Appviewx</option>
+<option value="AR4 Tech" >AR4 Tech</option>
+<option value="ARGO-HYTOS PVT. LTD" >ARGO-HYTOS PVT. LTD</option>
+<option value="Assefa" >Assefa</option>
+<option value="Asian Paints" >Asian Paints</option>
+<option value="Axles" >Axles</option> 
+<option value="BNC Motors" >BNC Motors</option>
+<option value="Boston Institute of Analytics" >Boston Institute of Analytics</option>
+<option value="Bonfiglioli" >Bonfiglioli</option>
+<option value="Brakes India Pvt Ltd" >Brakes India Pvt Ltd</option>
+<option value="CHEC Port City Colombo" >CHEC Port City Colombo</option>
+<option value="CAPL" >CAPL</option>
+<option value="CAPCO" >CAPCO</option>
+<option value="Capgemini Engineering" >Capgemini Engineering</option>
+<option value="Capgemini Flex" >Capgemini Flex</option>
+<option value="Capgemini Technologies" >Capgemini Technologies</option>
+<option value="CADKAMS Marketing" >CADKAMS Marketing</option>
+<option value="Cargill" >Cargill</option>
+<option value="Consolidated Analytics" >Consolidated Analytics</option>
+<option value="CBRE" >CBRE</option>
+<option value="Craftsman Automation ltd" >Craftsman Automation ltd</option>
+<option value="CRI Pumps" >CRI Pumps</option>
+<option value="Crisil" >Crisil</option>
+<option value="Criyaǧen Agri & Biotech Pvt.Ltd" >Criyaǧen Agri & Biotech Pvt.Ltd</option>
+<option value="CT-HCL" >CT-HCL</option>
+<option value="CT-Virtusa" >CT-Virtusa</option>
+<option value="CT-Yash Technologies" >CT-Yash Technologies</option>
+<option value="Culminant Oultook" >Culminant Oultook</option>
+<option value="Datum Innovation" >Datum Innovation</option>
+<option value="Delhivery.com" >Delhivery.com</option>
+<option value="East West Group" >East West Group</option>
+<option value="E- Con Systems" >E- Con Systems</option>
+<option value="Eternity Logistics" >Eternity Logistics</option>
+<option value="EClerx" >EClerx</option>
+<option value="Egston" >Egston</option>
+<option value="EMF" >EMF</option>
+<option value="EPP Composites Pvt Ltd" >EPP Composites Pvt Ltd</option>
+<option value="Euronet" >Euronet</option>
+<option value="Europe Study Center" >Europe Study Center</option>
+<option value="Fangs Technology Pvt Ltd" >Fangs Technology Pvt Ltd</option>
+<option value="FIS Global" >FIS Global</option>
+<option value="Form Connect" >Form Connect</option>
+<option value="Firstsource" >Firstsource</option>
+<option value="Fritzmeier Motherson Cabin Engg Ltd (FMCEL)" >Fritzmeier Motherson Cabin Engg Ltd (FMCEL)</option>
+<option value="Goel Steel Company" >Goel Steel Company</option>
+<option value="Greenerg Mobility Solutions Pvt Ltd" >Greenerg Mobility Solutions Pvt Ltd</option>
+<option value="Gallagher" >Gallagher</option>
+<option value="Gspann" >Gspann</option>
+<option value="Gilbarco Veeder Root" >Gilbarco Veeder Root</option>
+<option value="Hansa Research" >Hansa Research</option>
+<option value="HCL" >HCL</option>
+<option value="HDB Financial Services" >HDB Financial Services</option>
+<option value="Hexaware Technologies" >Hexaware Technologies</option>
+<option value="HTC Global" >HTC Global</option>
+<option value="Happiest Minds" >Happiest Minds</option>
+<option value="Hinduja Tech" >Hinduja Tech</option>
+<option value="HP" >HP</option>
+<option value="IBM" >IBM</option>
+<option value="Indium Software" >Indium Software</option>
+<option value="Inspirisys" >Inspirisys</option>
+<option value="IDFC" >IDFC</option>
+<option value="Inteva Products" >Inteva Products</option>
+<option value="JK Fenner" >JK Fenner</option>
+<option value="Konwert India Motors Pvt Ltd" >Konwert India Motors Pvt Ltd</option>
+<option value="Kaavian System Private Limited" >Kaavian System Private Limited</option>
+<option value="Keka Technologies" >Keka Technologies</option>
+<option value="KGISL" >KGISL</option>
+<option value="KSL Cleantech Limited" >KSL Cleantech Limited</option>
+<option value="Mapei Construction Chemicals INDIA Pvt Ltd" >Mapei Construction Chemicals INDIA Pvt Ltd</option>
+<option value="Leadec India Private Limited" >Leadec India Private Limited</option>
+<option value="Marlabs" >Marlabs</option>
+<option value="Maria Publishers" >Maria Publishers</option>
+<option value="Marico" >Marico</option>
+<option value="Marzoli" >Marzoli</option>
+<option value="MEL Systems" >MEL Systems</option>
+<option value="Mobile Programming LLC" >Mobile Programming LLC</option>
+<option value="Monexo Careers" >Monexo Careers</option>
+<option value="Motherson" >Motherson</option>
+<option value="Mphasis" >Mphasis</option>
+<option value="MS Global Automotive India Pvt Ltd" >MS Global Automotive India Pvt Ltd</option>
+<option value="MultiVista Global" >MultiVista Global</option>
+<option value="Neptune Farming" >Neptune Farming</option>
+<option value="NTC Logistics" >NTC Logistics</option>
+<option value="Payoda" >Payoda</option>
+<option value="Powersonic Industries" >Powersonic Industries</option>
+<option value="Prominance Upvc Window Systems" >Prominance Upvc Window Systems</option>
+<option value="Pricol" >Pricol</option>
+<option value="Pulse Electronics" >Pulse Electronics</option>
+<option value="Quest Global" >Quest Global</option>
+<option value="Quinte" >Quinte</option>
+<option value="Rabwin" >Rabwin</option>
+<option value="Rama Purewaterfilter" >Rama Purewaterfilter</option>
+<option value="Rane Brake Lining Limited" >Rane Brake Lining Limited</option>
+<option value="Roots MultiClean" >Roots MultiClean</option>
+<option value="SA technologies" >SA technologies</option>
+<option value="SCHWING Stetter India" >SCHWING Stetter India</option>
+<option value="SEPL" >SEPL</option>
+<option value="Shakti Hormann Pvt. Ltd" >Shakti Hormann Pvt. Ltd</option>
+<option value="SMR Automotive Systems India Limited" >SMR Automotive Systems India Limited</option>
+<option value="Schnell Energy Equipment" >Schnell Energy Equipment</option>
+<option value="SoCo Products Private Limited" >SoCo Products Private Limited</option>
+<option value="Sona Camstar" >Sona Camstar</option>
+<option value="Sutherland" >Sutherland</option>
+<option value="Summits Hygronics" >Summits Hygronics</option>
+<option value="Srivaru Motors Pvt Ltd" >Srivaru Motors Pvt Ltd</option>
+<option value="SYConE CPMC Pvt. Ltd" >SYConE CPMC Pvt. Ltd</option>
+<option value="Takasago International (India) Pvt. Ltd" >Takasago International (India) Pvt. Ltd</option>
+<option value="Tagww" >Tagww</option>
+<option value="Titan" >Titan</option>
+<option value="Touchstone" >Touchstone</option>
+<option value="TCL" >TCL</option>
+<option value="Tech Mahindra" >Tech Mahindra</option>
+<option value="Thryve Digital" >Thryve Digital</option>
+<option value="Udyogi" >Udyogi</option>
+<option value="Universal MEP Projects and Engineering Services Ltd" >Universal MEP Projects and Engineering Services Ltd</option>
+<option value="Unique Shell Mould India Private Limited" >Unique Shell Mould India Private Limited</option>
+<option value="Virtusa" >Virtusa</option>
+<option value="Vishnu Prasad Research centre" >Vishnu Prasad Research centre</option>
+<option value="VIM Alloy Pvt Ltd" >VIM Alloy Pvt Ltd</option>
+<option value="V-Tork Control" >V-Tork Control</option>
+<option value="Wesmarc Doors Technik Pvt. Ltd" >Wesmarc Doors Technik Pvt. Ltd</option>
+<option value="Wendit (India) Limited" >Wendit (India) Limited</option>
+<option value="Wuerth Elektronik" >Wuerth Elektronik</option>
+<option value="Wipro" >Wipro</option>
+<option value="WNS" >WNS</option>
+<option value="Yara Electronics" >Yara Electronics</option>
+<option value="Yash Technologies" >Yash Technologies</option>
+<option value="Yageo" >Yageo</option>
+    </select>
+  </div>
+<div class="col">
+    <label for="client-spoc" class="form-label">Client SPOC</label>
+    <select class="form-select" name="category" id="client-spoc" aria-label="Default select example">
+    <option value="" disabled selected>Select</option>
+    </select>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col">
+    <label for="skill" class="form-label">Skill</label>
+    <input type="text" class="form-control" id="skill" required>
+  </div>
+    <div class="col">
+    <label for="ClientManager" class="form-label">Client Manager</label>
+    <input type="text" class="form-control" id="clientManager" >
+  </div>
+    <div class="col">
+   <label for="skilltype" class="form-label">Skill Type</label>
+    <select class="form-select" id = "skilltype" aria-label="Default select example" required>
+    <option selected></option>
+    <option value="Vanilla" >Vanilla</option>
+    <option value="Nichie">Niche</option>
+    <option value="Super Nichie">Super Niche</option>
+        <option value="BPO">BPO</option>
+    </select>
+  </div>
+      <div class="col">
+   <label for="budget" class="form-label">Budget</label>
+    <select class="form-select" id = "budget" aria-label="Default select example" required>
+    <option selected></option>
+    <option value="Less than 10 Lacs" >Less than 10 Lacs</option>
+    <option value="10 - 20 Lacs">10 - 20 Lacs</option>
+    <option value="20 - 30 Lacs">20 Lacs - 30 Lacs</option>
+        <option value="More than 30 Lacs">More than 30 Lacs</option>
+    </select>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col">
+    <label for="culminant-spoc" class="form-label">Culminant SPOC</label>
+    <select class="form-select" id = "culminant-spoc" aria-label="Default select example"  required>
+    <option value="" disabled selected>Select</option>
+    <option value="Anand">Anand</option>
+    <option value="Gowri lakshmi">Gowri lakshmi</option>
+    <option value="Divya Bharathi">Divya Bharathi</option>
+    <option value="Kishore">Kishore</option>
+    <option value="Kuttiraj">Kuttiraj</option>
+    <option value="Nandini">Nandini</option>
+    <option value="Nivethitha">Nivethitha</option>
+    <option value="Rahamath">Rahamath</option>
+    <option value="Rishiga">Rishiga</option>
+    <option value="Aishwarya">Aishwarya</option>
+    <option value="Arundathi">Arundathi</option>
+    <option value="Naren">Naren</option>
+    <option value="Praveen">Praveen</option>
+    <option value="Illakia">Illakia</option>
+    <option value="Jeffery Joshua J">Jeffery Joshua J</option>
+    <option value="Kumarakannnan">Kumarakannnan</option>
+    <option value="Samantha Angelina Rao">Samantha Angelina Rao</option>
+    <option value="Mahesh">Mahesh</option>
+    <option value="Jeevitha">Jeevitha</option>
+    <option value="Prasanth">Prasanth</option>
+    <option value="Tarak">Tarak</option>
+    <option value="Siddharth">Siddharth</option>
+</select>
+</div>
+<div class="col">
+<label for="teamLead" class="form-label">Recruitment Lead</label>
+<select class="form-select" name="category" id="teamLead" aria-label="Default select example">
+        <option value="" disabled selected>Select</option>
+    <option value="Anand">Anand</option>
+    <option value="Divya Bharathi">Divya Bharathi</option>
+    <option value="Gowri lakshmi">Gowri lakshmi</option>
+    <option value="Kishore">Kishore</option>
+    <option value="Kuttiraj">Kuttiraj</option>
+    <option value="Nandini">Nandini</option>
+    <option value="Nivethitha">Nivethitha</option>
+    <option value="Rishiga">Rishiga</option>
+    <option value="Samantha Angelina Rao">Samantha Angelina Rao</option>
+    <option value="Tarak">Tarak</option>
+    <option value="Jeffery Joshua J">Jeffery Joshua J</option>
+</select>
+</select>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col">
+    <label for="position" class="form-label">Senior Manager</label>
+    <select class="form-select" id="principleConsultant" aria-label="Default select example">
+    <option  value="Kabil">Kabil</option>
+    </select>
+  </div>
+  <div class="col">
+    <label for="weekday" class="form-label">Weekend/Weekday</label>
+    <select class="form-select" id = "weekday" aria-label="Default select example" required>
+    <option  selected> </option>
+    <option  value="Weekend">Weekend</option>
+    <option  value="Weekday">Weekday</option>
+    </select>
+  </div>
+  <div class="col-md-6">
+    <label for="location" class="form-label">Work Location</label>
+    <input type="text" class="form-control" id="location">
+  </div>
+  <div class="row">
+  <div class="col-md-2">
+    <label for="position" class="form-label">Open Position</label>
+    <input type="number" class="form-control" id="position">
+  </div>
+    <div class="col-md-4">
+    <label for="status" class="form-label">Status</label >
+    <select class="form-select" id = "status"  aria-label="Default select example">
+    <option  value="Active">Active</option>
+    </select>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+  <button class="btn btn-primary mt-3" id="add-job-code-button" >Add Job Code </button>
+   <button class="btn btn-primary mt-3" id="add-job-code-button"  onclick="ClearRecord()" >Clear </button>
+
+  </div>
+<div class="alert alert-success invisible mt-3" id="save-success-message" role="alert">
+  New Job Code Created!!
+</div>
+  </div>
+  
+
