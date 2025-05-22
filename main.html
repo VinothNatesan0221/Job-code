@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <style>
+      /* Define a CSS class for active status */
+.active-style {
+    color: green;  /* Change text color to green for active status */
+    font-weight: bold;  /* Make text bold for active status */
+    /* Add any other styles you want for active status */
+}
+
+/* Optionally, you can define styles for inactive status */
+.inactive-style {
+    color: red;  /* Change text color to red for inactive status */
+    /* Add any other styles you want for inactive status */
+}
+
+
+
+
+      body {
+        background-color:red;
+      }
+    .nav-link{
+          cursor:pointer;
+    }
+    
+          #loading{
+             position:fixed;
+             top:0;
+             left:0;
+             z-index:10000;
+             width:100vw;
+             height:100vh;
+             background-color: rgba(255,255,255,0.9);
+          }
+.has-bg-img:after {
+    content:'';
+    background: url('https://i.postimg.cc/RVmcBRZC/Culimant-logo-PNG-Transparent-file.png') no-repeat center center;
+    position: absolute;
+    top:0px;
+    left: 0px;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    opacity: 0.2; /* Here is your opacity */
+}
+.has-bg-img {
+    position: relative;
+    width:100%;
+    padding:50px;
+    font-weight:bold;
+    text-align:center;
+}
+               
+    </style>
+    
+  </head>
+  <body style="background-color:powderblue;" class="has-bg-img">
+    <div> <h1><center>Create Job Code </center></h1></div>
+    <div class="container">
+    <nav id="navigation" class = "mb-3">
+    <ul class="nav nav-tabs main-nav">
+    <li class="nav-item">
+    <div class="nav-link" id="add-job-code-link">Add Job Code</div>
+    </li>
+    <li class="nav-item">
+    <div class="nav-link" id="search-link">Search Job Code</div>
+    </li>
+    </ul>
+    </nav>
+    
+  <div id="app" ></div>
+    </div>
+    <div id="loading" class="d-flex justify-content-center align-items-center invisible">
+    <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+    <span class="visually-hidden">Loading...</span>
+    </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+   
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    
+    <script>
+    
+    //-------------- dependent Dropdown
+          var mealsByCategory = {
+    Anand: ["Anand"],
+    "Tarak": ["Tarak"],
+    "Divya Bharathi": ["Divya Bharathi"],
+    "Jeffery Joshua J": ["Jeffery Joshua J"],
+    Kishore: ["Kishore"],
+    Kuttiraj: ["Kuttiraj"],
+    Nandini: ["Nandini"],
+    Nivethitha: ["Nivethitha"],
+    Rahamath: ["Rahamath"],
+    Rishiga: ["Rishiga"],
+    "Gowri Lakshmi": ["Gowri Lakshmi"],
+"Samantha Angelina Rao": ["Samantha Angelina Rao"]
+}
+    function changecat(value) {
+        if (value.length == 0) document.getElementById("teamLead").innerHTML = "<option></option>";
+        else {
+            var catOptions = "";
+            for (categoryId in mealsByCategory[value]) {
+                catOptions += "<option>" + mealsByCategory[value][categoryId] + "</option>";
+            }
+            document.getElementById("teamLead").innerHTML = catOptions;
+        }
+    }
+ //-------------------------- 
+ 
+  
+  //-------------- dependent Dropdown
+       var clientByCategory = {
+    "3i-InfoTech": ["Prince / Amit Singh","Shraddha","Chritina","Sathish Kumar","Saikiran"],
+    "Argo Hytos":["Anand"],
+    "Alpha Ori": ["Manju"],
+    "Adithya Birla Capital": ["Mohan Raj"],
+    "ACL":["Mamata kale","Lakshmi","Amit Kumar","Shivani","Amit","Srinivas ov","Munmi Gogoi"],
+    "Allsec Technologies":["Litto N Rajan"],
+    Altimetrik:["Nandini","Divyabharathi","Mahima Mishra","Devishree","Saranya","Manikandan","Rayala Saritha","Namrata Saraf","Varuni S"],
+    "Appviewx":["Vanathi Thangavel"],
+    "AR4 Tech":["Sankari"],
+    "ARGO-HYTOS PVT. LTD":["Anand Kumar A"],
+    Assefa:["Loganathan Kumar - Siddharth "],
+    "Asian Paints":["Shalini","Usha","Surjith","Jennifer"],
+    Axles:["Radhakrishnan"],
+    "Boston Institute of Analytics":["Shradha Ganvir"],
+    "Brakes India Pvt Ltd":["Akshaya Sivakumar"],
+    Bonfiglioli:["Sameera","Lalit Kumar"],
+    "BNC Motors":["Vijayaragavan"],
+    "Craftsman Automation ltd":["Jeevabharathi T"],
+    "CHEC Port City Colombo":["Daminda"],
+    "Capgemini Engineering": ["Shilpa Shree","Komal","Rohith Kumar","Shrikantha","Rekha M","Bhawna Bhattacharjee","Praveen M","Sangram Panigrahy","Swati","Lohitha","Hariom","Loga Priya","Tejaswini","Ritu","Mohan","babitha","Saranya","Priyanka","Madhuri","Divya Tomar","Madhuri Sivaraju","Praveen","Saravanan Anandan","Ponmayil","Shristi","Vinay sethi","Lohitha","Komal Shahaji"],
+    "Capgemini Flex":["Pooja Sharma","Nitin Kumar","Sunny","Vamsi","Surabhi Patil","Gowri Lakshmi"],
+    "Capgemini Technologies": ["Khushbu Singh","Ritu Singh","Rushika","Balaji","Parishmita Goswami","Avantika","Gracy Mary","Nikita Bist","Manoshree bhattacharjee","Preethi E","Gowtham Bharathi","Anisha","Shilpa","Avantika Agarwal","Bhawna","Madhubala","Sameer","Yojana","Gracy Mary","Durai Raj","Josephine","Madhulata","Punith Kumar","Jositha- Illakia","Parul","SreeRekha","Shreya","Vaishnavi","Saipradeep","Simran","Neetu","Nooh Zaveri","Harsh Lakhmani","ritu","Isha Choudry","Madhuri","Ashwini","Hemanth Kumar","Saranya","Sushma A","Khushi","Archana","Kushi"],
+  "CADKAMS Marketing":["Balamurugan","Mahendra Kumar Bajaj",],
+  CAPL:["Sam","Pooja"],
+  CAPCO:["Gopala Naidu Routhu","Arpita"],
+    Cargill:["Swapna Kattamuri","Sushma"],
+    "Consolidated Analytics":["SAM - Siddharth"],
+    CBRE: ["Leo Carvalho","Archana","Saravanakumar"],
+    "Culminant Oultook":["Kabila"],
+    Crisil :["Samantha Fernandes","Ashwini Phansekar"],
+    "CRI Pumps":["Satheeshkumar"],
+    "Criyaǧen Agri & Biotech Pvt.Ltd":["Nagaraj Rawut"],
+    "CT-HCL": ["CT-Murugesan","CT-VIKAS KAPOOR","CT- ALKA KUMARI","Kanika","Selvakumari"],
+    "Datum Innovation":["Maharasi"],
+    "CT-Virtusa": ["CT-Jikriya","CT-Arul","CT-Sam Mathews","CT-Sirisha Jodu","CT-Nalini","CT-Priyadharshini","CT-Radhika","CT-Augustine Joe","CT-Prashanth Raj","CT-Sarita Jayanti Kar","CT-Saurabh Dwivedi","CT-Mohan V","CT-Venkateswaran"],
+    "CT-Yash Technologies":["CT-Priya Patel"],
+    "Delhivery.com":["Sanjana Suresh","Ashmita Roy"],
+    "East West Group":["Joel","Selvakumar"],
+    "E - Con Systems":["Suvi"],
+    EClerx :["Jahnvi"],
+    Egston:["Sumathy"],
+    EMF:["Rathipriya"],
+    "EPP Composites Pvt Ltd":["Roobina"],
+    "Eternity Logistics": ["Sukriti"],
+    Euronet:["Piyush"],
+    "Europe Study Center":["Anusha"],
+    "Fangs Technology Pvt Ltd":["Murali"],
+    "FIS Global": ["Jagan Pamu","Dipali","Effy Joyce D’souza","Sandeep Chandrakant Kakde","NoorMahamed","Vivane","Anita & Navodita","Gopal","Manikandan","Chandan","Aparna","Priyanka","Deepti Rani","Prathibha N","Renuka","Tanya","Sowjanya"],
+    "Form Connect":["Bala"],
+    "Firstsource":["Swapna - Siddharth","Raj Babu - Siddharth","Jose Emmanuel","Arun Kumar","Sam","Arun Palanisamy"],
+    "Fritzmeier Motherson Cabin Engg Ltd (FMCEL)":["Sharlin. A"],
+    "Goel Steel Company":["Arun"],
+    "Greenerg Mobility Solutions Pvt Ltd":["Vikashini Vivek","Shanmugam"],
+    "Gilbarco Veeder Root":["Jeya Priscilla"],
+    Gallagher:["Kritika Karn"],
+    Gspann:["Pranathi Prayaga","Rakesh Sure","Venkat Bellamkonda","Rohan Sarell"],
+    "Hansa Research":["Pooja Patil"],
+    "Hexaware Technologies":["Siva"],
+    "HDB Financial Services":["Ganesh","Balaji"],
+    HCL: ["Prijesh","Sowmiya","Thomas","Ramcharan","Manjula","Bhavya Shree Roy T N","Ramchandran","Kalpana","Monish - Saranya A","Anshu Kumari","Divya Arora","Alka Kumari","Suganya","Logeshwari","Shalu Juneja","Indrani","Tripti Prasad","Smita","Priyanka","Siva Jyothi Gunda","Dimple Malik","Dheeraj","Umang","Tamanna","Priya Kumari","VIKAS KAPOOR","Imprita","Kratika","Vishesh","Kosuri Subhuramanyam","Sandhiya","Murugesan","Mansi Nigaltiya","Selvakumari","Eshwari-Aruna","Syed","Kanika Sharma","Rahul","Mubeena","James Nelson","Rupali Ramachandra Devarde","Priya Swani","Priya Kaushik","Shalini rana","Aparna","Uthira Kumar","Sangeetha","Veeramalliga","Pooja","Ram Sai Koushik Gangavarapu","Nidhi","Durga","Saurabh Dwivedi"],
+    "HTC Global":["Shalini","Meenakumari"],
+    "Happiest Minds":["Aswin"],
+    "Hinduja Tech": ["Mithun","Sandi","Tamizhvalavan A"],
+    HP:["Aparna Mallick","Siddharth"],
+    IBM:["Prerna","Annapurna","Priyanka Saha","Namith"],
+    IDFC:["Komal Ingle - Siddharth","Aditya Anisetti","Sruthi","Thulasi","Jenil Anto"],
+    "Indium Software":["Aditya Vignesh","Leelavathy","Sugapriya","Anisha","Lakshmi Priya","Lavanya Mohanan","Yogeshwari","RamKumar","Karthik"],
+    "Inteva Products":["Amrit Singh"],
+    Inspirisys:["Solaiyammal"],
+    "JK Fenner":["Aswin"],
+    "Konwert India Motors Pvt Ltd":["Edwin Ezhilarasu"],
+    "Kaavian System Private Limited":["Bharat Raju"],
+    "Keka Technologies":["Pradeep","Surya"],
+    KGISL:["Arun Somasundaram"],
+    "KSL Cleantech Limited":["Ankita Talukdar"],
+    "Leadec India Private Limited":["Sarojini M","Ashish Yadav"],
+    "Mapei Construction Chemicals INDIA Pvt Ltd":["Jeevanth S"],
+    "Maria Publishers":["Julie","Joshua"],
+    Marlabs:["Poonacha"],
+    Marzoli:["Thirumoorthi V"],
+    "MEL Systems":["Balaji"],
+    "Mobile Programming LLC":["Shrisha"],
+    Marzoli:["Thirumoorthi V"],
+    "MEL Systems":["Balaji"],
+    "Mobile Programming LLC":["Shrisha"],
+    "Monexo Careers":["Jaheer Ismail"],
+    Motherson:["Himanshu Mittal","Saranya","Pooja Sharma","Mohan","Malavika Ramaiyan"],
+    Mphasis:["Niharika Moraskar","Rhea","Malkit","Priyanka","Lakshmi","Arya","Ranjitha","Sheethal","Satya Prakash Sahu","Neeraj","Harshitha","Madhumita jena","Krishna Manohar","Shalini Singh","Deepika","Zahida","Shweta Pandey","Yasar","Deeksha","Baishali","Midhun","Gireesh","Shital Joshi","Urvashi","Shivani Desai","Nagarjuna","Syed Ahmed","Gireesh","Harish","Urvashi","Suresh","Rajeshwari","Reeva","Shivani Salian","Harikumar","Mrityuanjai","Kartheek Maradani","Manoj A","sathya sahu","Priyanka Singh","Chaithra","Pragathi","Pooja","Satya Sahu","Riya Bhowmik","Amrutha","Sandhya","Reeva","Abinaya","Varsha","Tulasi","Pasala Tryakshari","Priyanka Bhendekar","Sudhir","Pratiksha Salunkhe","Swetha Vemula","Urvashi","Laxmi P","Thipeeswamy","Sameer Sinvaan","Harish","Chitturi Sandhya","Isha Gupta","Reena","Manoj A","Shruthi GR","Chaitrashree B"],
+    "MS Global Automotive India Pvt Ltd":["Mohan"],
+    "MultiVista Global":["Rajan"],
+    "Neptune Farming":["Somya"],
+    "NTC Logistics":["Praveen"],
+    Payoda:["Vinoth"],
+    "Powersonic Industries":["Saranya"],
+    "Prominance Upvc Window Systems":["Raj Kumar","Sandhya Nair"],
+    Pricol:["Supriya"],
+    "Pulse Electronics":["Sumathy"],
+    "Quest Global":["Nandha","Prabagar Vellaisamy","Anushree","Vidya Sagar","Sudharsanan Rengachary","Fakkrudeen"],
+    Quinte:["Lokesh","Jenifer","Bhawana","Tania"],
+    Rabwin:["Senthil Kumar"],
+    "Rama Purewaterfilter":["Nishanth"],
+    "Rane Brake Lining Limited":["Vinodh"],
+    "Roots MultiClean":["Gayathri","Kanchana","Manojith"],
+    "SA technologies":["Hari Hara"],
+    "SCHWING Stetter India":["Arunagiri"],
+    SEPL:["Ramya"],
+    "SMR Automotive Systems India Limited":["Sripriya"],
+    "SoCo Products Private Limited":["Anmol Vij"],
+    "Schnell Energy Equipment":["Sathish","Lynda","Reghana"],
+    "Sona Camstar":["Rajavignesh"],
+    Sutherland:["Roopashree"],
+    "Summits Hygronics":["Vivek"],
+    "Shakti Hormann Pvt. Ltd":["K.Bhavani"],
+    "Srivaru Motors Pvt Ltd":["Balu Ravichandran"],
+    "SYConE CPMC Pvt. Ltd":["Tyson P Mathew"],
+    Titan:["Swetha"],
+    Tagww:["Boopathy"],
+    "Takasago International (India) Pvt. Ltd":["Saianand Bhaskaran","Rex Praveen"],
+    "Tech Mahindra":["Simson","Vinay"],
+    Touchstone:["Jayapriya"],
+    "Thryve Digital":["Reshma","Manoj Kumar","Ramadevi"],
+    "TCL":["Abinaya","Roshan"],
+    "Udyogi":["Jennifer"],
+    "Universal MEP Projects and Engineering Services Ltd":["Ebzibha U"],
+    "Unique Shell Mould India Private Limited":["Mahendran"],
+    "Virtusa":["Jikriya Sheik","Koteswarao","Sarita Jayanti Kar","Priya Dharshini","Praveen Francis","Surya N","Kalyan","John","Yamini","Nalini","Vidhya Sagar","Juhi Gupta","Sangeetha","yogkesh","Hari Kumar Gattam","Augustine Joe","Panchshila More","Radhika","Anbu kumaran","Mohan V","Victoria","Dyana Nisha","Sirisha Jodu","Pooja Abhang","Sugitha Padmanabhan"],
+    "Vishnu Prasad Research centre":["Arun Kumar"],
+    "VIM Alloy Pvt Ltd":["Joel Rajkumar"],
+    "V-Tork Control":["Surya"],
+    "Wesmarc Doors Technik Pvt. Ltd":["Manjunath"],
+    "Wendit (India) Limited":["Nagaraju Raghavendran"],
+    Wipro:["NITISHA GEHANI","Aiswarya Mahadevan","Vikram Duggal","Sivaranjini","Jaga","Gayathri-Jose","Soumya/Vaibhav-Brindhaa Merlin","Deepshikha-Jose",   
+           "Yash-Pavithira","Kajol-Pavithira","Sheyosree - Siddharth"," Neha - Pavithira","Shrenika - pavithira","Soumya/Vaibhav  - Pavithira","Vasilaa","Sreeja","Soumya/Vaibhav - Brindhaa Merlin","Varuna - Pavithira","Roshan - Siddharth","Varuna - Siddharth","Roshan - Siddharth","Deepshikha - Siddharth","Shrenika - Siddharth","Yash - Siddharth","Supreetha - Siddharth","Sudeep - Brindhaa Merlin","Pooja - Siddharth","Monisha - Siddharth","Sreeja Bagchi","Mahima","Sangeetha","Krishna","Asmaa",,"Robin","Manisha","Pushpa Rani V","Neha Shiraskar","Narmadha","Prabakaran","Sulekha Pathak","Rengarajan","Anand Babu J","Mohammed Musthakeem","Sugasini","Shobhita Pant","Priyanka Kumari","Anil","Arpit Sharma","Pavan","Vishwajeet","Prerona","Hemant Ambhore","Samuel","Vikas","Ameena Ambreen","Roshini","Jemima","Subhra"],
+    "Wuerth Elektronik":["Raksha"],
+    WNS:["Girish Nandakumar / Vipan Deep","Peer Mydeen","Divya - Praveen","Javed - Praveen","Sonali Gaore"],
+"Yara Electronics":["Kiran"],
+"Yash Technologies":["Priya Patel"],
+"Yageo":["Sumathy"]
+    
+}
+
+    function changecli(value) {
+        if (value.length == 0) document.getElementById("client-spoc").innerHTML = "<option></option>";
+        else {
+            var catOptions = "";
+            for (categoryId in clientByCategory[value]) {
+                catOptions += "<option>" + clientByCategory[value][categoryId] + "</option>";
+            }
+            document.getElementById("client-spoc").innerHTML = catOptions;
+        }
+    }
+ //--------------------------  
+    
+      var data;
+      
+      function loadView(options){
+      var id = typeof options.id === "undefined" ? "app" : options.id;
+      var cb = typeof options.callback === "undefined" ? function(){} : options.callback;
+            loadinStart();
+      google.script.run.withSuccessHandler(function(html){
+       document.getElementById(id).innerHTML = html;
+        loadinEnd();
+       typeof options.params === "undefined" ? cb() : cb(options.params);
+      })[options.func]();
+      }
+      
+      function setDataForSearch(){
+      loadinStart();
+      google.script.run.withSuccessHandler(function(dataReturned){
+      data = dataReturned.slice();
+      loadinEnd();
+      }).getDataForSearch();
+      }
+      
+      function search(){
+      
+        var searchInput = document.getElementById("searchInput").value.toString().toLowerCase().trim();
+        var searchWords = searchInput.split(/\s+/);
+        var searchColumns = [0,1,3,4,5,6,7,9,12];
+        
+        
+        var resultsArray = data.filter(function(r){
+         return searchWords.every(function(word){
+         return searchColumns.some(function(colIndex){
+         return r[colIndex].toString().toLowerCase().indexOf(word)  !== -1
+        });
+        });
+        });
+        
+        
+
+        var recordcount = searchInput === "" ? "": " Record Count: " + resultsArray.length;
+        document.getElementById("searchCounter").textContent = recordcount;
+         var searchResultsBox = document.getElementById("searchResults");
+         var templateBox = document.getElementById("rowTemplate");
+         var template = templateBox.content;
+         
+         
+         searchResultsBox.innerHTML = "";
+         
+         resultsArray.forEach(function(r){
+         
+         var tr = template.cloneNode(true);
+         var jobCodeColumn = tr.querySelector(".jobCode");
+         var clientColumn = tr.querySelector(".client");
+         var skillTypeColumn = tr.querySelector(".skillType");
+        //  var budgetColumn = tr.querySelector(".budget");
+         var skillColumn = tr.querySelector(".skill");
+         var clientSpocColumn = tr.querySelector(".clientSpoc");
+         var clientManagerColumn = tr.querySelector(".clientManager");
+         var culminantSpocColumn = tr.querySelector(".culminantSpoc");
+         var teamLeadColumn = tr.querySelector(".teamLead");
+         var principleConsultantColumn = tr.querySelector(".principleConsultant");
+         var workLocationColumn = tr.querySelector(".workLocation");
+         var openPositionColumn = tr.querySelector(".openPosition");
+         var statusColumn = tr.querySelector(".status");
+         var isActive = r[13].toString().toLowerCase().includes("Active");
+         if (isActive) {
+        statusColumn.classList.add("active-style");
+    } else {
+        statusColumn.classList.add("inactive-style");
+    }
+         var editbutton = tr.querySelector(".edit-button");
+         
+         
+         jobCodeColumn.textContent = r[0];
+         clientColumn.textContent = r[1];
+         editbutton.dataset.jobCode = r[0];
+         skillTypeColumn.textContent = r[2];
+         skillColumn.textContent = r[3];
+         clientSpocColumn.textContent = r[4];
+        //  budgetColumn.textContent = r[5];
+         culminantSpocColumn.textContent = r[7];
+         teamLeadColumn.textContent = r[8];
+         principleConsultantColumn.textContent = r[9];
+         workLocationColumn.textContent = r[10];
+         openPositionColumn.textContent = r[11];
+         clientManagerColumn.textContent = r[12];
+         statusColumn.textContent = r[13];
+         searchResultsBox.appendChild(tr);
+         
+         
+         });
+         }
+        
+        
+        
+      function afterEditViewLoads(params){
+      loadinStart();
+      document.getElementById("job-code").value = params.jobCode;
+      google.script.run.withSuccessHandler(function(jobcodeinfo){
+      document.getElementById("client").value = jobcodeinfo.client;
+      document.getElementById("skillType").value = jobcodeinfo.skillType;
+      // document.getElementById("budget").value = jobcodeinfo.budget;
+      document.getElementById("skill").value = jobcodeinfo.skill;
+      document.getElementById("clientManager").value = jobcodeinfo.clientManager;
+      document.getElementById("client-spoc").value = jobcodeinfo.clientSpoc;
+      document.getElementById("culminant-spoc").value = jobcodeinfo.culminantSpoc;
+      document.getElementById("status").value = jobcodeinfo.status;
+      loadinEnd();
+      }).getJobCodebyId(params.jobCode)
+      
+      }
+      
+      function editJobCode(){
+       loadinStart();
+      var jobcodeinfo = {};
+     
+      jobcodeinfo.status = document.getElementById("status").value;
+      
+      var id = document.getElementById("job-code").value;
+      
+      google.script.run.withSuccessHandler(function(res){
+      
+      document.getElementById("save-success-message").classList.remove("invisible");
+      loadinEnd();
+      setTimeout(function(){
+      document.getElementById("save-success-message").classList.add("invisible");
+      },2000);
+      }).editJobCodeById(id,jobcodeinfo);    
+
+      }
+      
+      
+      function addjobcode(){
+      if(validate()){
+        loadinStart();
+      var jobcodeinfo = {};
+      jobcodeinfo.sharedDate = document.getElementById("shared-date").value;
+      jobcodeinfo.jobcode = document.getElementById("job-code").value;
+      jobcodeinfo.client = document.getElementById("client").value;
+      jobcodeinfo.skilltype = document.getElementById("skilltype").value;
+      jobcodeinfo.budget = document.getElementById("budget").value;
+      jobcodeinfo.skill = document.getElementById("skill").value;
+      jobcodeinfo.clientSpoc = document.getElementById("client-spoc").value;
+      jobcodeinfo.clientManager = document.getElementById("clientManager").value;
+      jobcodeinfo.culminantSpoc = document.getElementById("culminant-spoc").value;
+      jobcodeinfo.teamLead = document.getElementById("teamLead").value;
+      jobcodeinfo.principleConsultant = document.getElementById("principleConsultant").value;
+      jobcodeinfo.weekday = document.getElementById("weekday").value;
+      jobcodeinfo.location = document.getElementById("location").value;
+      jobcodeinfo.position = document.getElementById("position").value;
+      jobcodeinfo.status = document.getElementById("status").value;
+
+ 
+       google.script.run.withSuccessHandler(function(){
+       
+//      document.getElementById("shared-date").value = "";
+//      document.getElementById("job-code").value = "";
+//      document.getElementById("client").value = "";
+//      document.getElementById("skilltype").value = "";
+//      document.getElementById("budget").value = "";
+//      document.getElementById("skill").value = "";
+//      document.getElementById("client-spoc").value = "";
+//      document.getElementById("client-Manager").value = "";
+//      document.getElementById("culminant-spoc").value = "";
+//      document.getElementById("weekday").value = "";
+//      document.getElementById("location").value = "";
+//      document.getElementById("position").value = "";
+//      document.getElementById("status").value = "";
+      
+      document.getElementById("save-success-message").classList.remove("invisible");
+        loadinEnd();
+      setTimeout(function(){
+      document.getElementById("save-success-message").classList.add("invisible");
+      document.getElementById("job-code").value.classList.add("invisible");
+      },2000);
+       
+       }).addjobcode(jobcodeinfo);
+                          } else {
+              $('#errorNotification').toast('show');
+
+      }
+    
+      }
+      
+      function loadSearchView(){
+      loadView({func: "loadSearchView", callback: setDataForSearch});
+      }
+      
+      function loadAddJobCodeView(){
+      loadView({func: "loadAddJobCodeView"});
+      }
+      
+      function loadEditJobCodeView(e){
+      loadView({func: "loadEditJobCodeView", callback: afterEditViewLoads, params: {jobCode: e.target.dataset.jobCode} });
+      }
+      
+      
+      function activeTabChange(e){
+        var navLinks = document.querySelectorAll(".main-nav .nav-link");
+      
+        navLinks.forEach(function(linkE1){
+        linkE1.classList.remove("active");
+        });
+        e.target.classList.add("active");
+      }
+      
+      function validate(){
+      var fieldsToValidate = document.querySelectorAll("#userform input");
+      
+      Array.prototype.forEach.call(fieldsToValidate,function(el){
+        if (el.checkValidity()){
+            el.classList.remove("is-invalid");
+            } else {
+             el.classList.add("is-invalid");
+            }
+            });
+      
+      return Array.prototype.every.call(fieldsToValidate,function(el){
+      return el.checkValidity();      
+      });
+      }
+      
+      function loadinStart(){
+         document.getElementById("loading").classList.remove("invisible");
+      }
+      function loadinEnd(){
+         document.getElementById("loading").classList.add("invisible");
+      }
+      
+    document.getElementById("search-link").addEventListener("click",loadSearchView);
+    document.getElementById("add-job-code-link").addEventListener("click",loadAddJobCodeView);
+    
+     function inputEventHandler(e){
+       if(e.target.matches("#searchInput")){
+       search();
+       }
+     }
+     
+     function clickEventHandler(e){
+      if (e.target.matches(".edit-button")){
+      loadEditJobCodeView(e);
+      }
+      
+        if (e.target.matches("#save-changes")){
+        editJobCode();
+      }
+      
+        if (e.target.matches("#cancel-changes")){
+        loadSearchView();
+      }
+        if (e.target.matches("#add-job-code-button")){
+        addjobcode();
+      }
+     }
+     
+     function navClickEventHandler(e){
+        if (e.target.matches(".nav-link")){
+      activeTabChange(e);
+      }
+     }
+     
+     document.getElementById("app").addEventListener("input",inputEventHandler);
+     document.getElementById("app").addEventListener("click",clickEventHandler);
+     document.getElementById("navigation").addEventListener("click",navClickEventHandler);
+     document.addEventListener("DOMContentLoaded", loadAddJobCodeView);
+    
+    </script>
+  </body>
+</html>
